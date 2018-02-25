@@ -4,19 +4,19 @@
     size="mini"
     :stripe="stripe"
     border>
-    <el-table-column v-if="showName" label="部门">
+    <el-table-column v-if="showName" label="部门" width="150px">
       <template slot-scope="scope">{{dictDepartment(scope.row.department, 'name')}}</template>
     </el-table-column>
-    <el-table-column label="物品">
+    <el-table-column label="物品" width="150">
       <template slot-scope="scope">{{dictProject(scope.row.project, 'name')}}</template>
     </el-table-column>
-    <el-table-column label="数量" width="100">
+    <el-table-column label="数量" width="60">
       <template slot-scope="scope">{{scope.row.num}}</template>
     </el-table-column>
-    <el-table-column label="价格" width="100">
+    <el-table-column label="价格" width="60">
       <template slot-scope="scope">{{dictProject(scope.row.project, 'price')}}</template>
     </el-table-column>
-    <el-table-column label="单位" width="100">
+    <el-table-column label="单位" width="60">
       <template slot-scope="scope">{{dictProject(scope.row.project, 'unit')}}</template>
     </el-table-column>
     <el-table-column label="出库日期">
