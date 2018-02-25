@@ -10,6 +10,9 @@
     <el-table-column label="数量" width="100">
       <template slot-scope="scope">{{scope.row.num}}</template>
     </el-table-column>
+    <el-table-column label="价格" width="100">
+      <template slot-scope="scope">{{dictProject(scope.row.project, 'price')}}</template>
+    </el-table-column>
     <el-table-column label="单位" width="100">
       <template slot-scope="scope">{{dictProject(scope.row.project, 'unit')}}</template>
     </el-table-column>
