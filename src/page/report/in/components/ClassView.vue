@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-for="(item, index) in classes" :key="index">
-      <h1>{{item.name}} 共入库{{add(item.data)}}{{item.unit}} 总价值{{add(item.data) * item.price}}元</h1>
+      <h1>{{item.name}} 共入库{{add(item.data)}}{{item.unit}} 总价值{{parseFloat(add(item.data) * item.price).toFixed(2)}}元</h1>
       <TableIn :data="item.data" :show-name="false" :stripe="false"></TableIn>
     </div>
   </div>
