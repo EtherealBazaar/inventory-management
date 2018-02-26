@@ -7,8 +7,10 @@
     <el-table-column v-if="showName" label="物品" width="150px">
       <template slot-scope="scope">{{dictProject(scope.row.project, 'name')}}</template>
     </el-table-column>
-    <el-table-column label="数量" width="60">
-      <template slot-scope="scope">{{scope.row.num}}</template>
+    <el-table-column label="数量" width="160">
+      <template slot-scope="scope">
+        <el-button size="mini">{{scope.row.num}}</el-button>
+      </template>
     </el-table-column>
     <el-table-column label="价格" width="60">
       <template slot-scope="scope">{{dictProject(scope.row.project, 'price')}}</template>
