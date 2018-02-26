@@ -18,7 +18,7 @@
     </div>
     <br>
     <div>
-      <el-button>确定修改</el-button>
+      <el-button @click="handleSubmit">确定修改</el-button>
     </div>
   </Container>
 </template>
@@ -64,6 +64,26 @@ export default {
     handleBack () {
       this.$router.push({
         name: 'history-in'
+      })
+    },
+    // 提交
+    handleSubmit () {
+      // 更新存量
+      this.vuexProjectsUpdateNum({
+        id: this.history.project,
+        change: this.value - this.history.num
+      })
+      this.vuexProjectsLoad()
+      // 更新历史
+      this.vuexHistoryInUpdate({
+        id: this.history.id,
+        num: this.value
+      })
+      this.vuexHistoryInLoad()
+      // 结束
+      this.$message({
+        message: '保存成功',
+        type: 'success'
       })
     }
   }
