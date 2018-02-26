@@ -9,7 +9,7 @@
     </el-table-column>
     <el-table-column label="数量" width="160">
       <template slot-scope="scope">
-        <el-button size="mini">{{scope.row.num}}</el-button>
+        <el-button type="success" size="mini" @click="$emit('editNum', scope.row)">{{scope.row.num}}</el-button>
       </template>
     </el-table-column>
     <el-table-column label="价格" width="60">

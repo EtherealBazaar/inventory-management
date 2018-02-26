@@ -73,6 +73,12 @@ let router = new Router({
           component: resolve => { require(['@/page/history/in/index.vue'], resolve) }
         },
         {
+          path: 'history/in/editNum',
+          name: 'history-in-editNum',
+          ...metaAuth,
+          component: resolve => { require(['@/page/history/in/editNum.vue'], resolve) }
+        },
+        {
           path: 'history/out',
           name: 'history-out',
           ...metaAuth,

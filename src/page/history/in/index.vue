@@ -1,6 +1,9 @@
 <template>
   <Container>
-    <TableIn :data="vuexHistoryIn"></TableIn>
+    <TableIn
+      :data="vuexHistoryIn"
+      @editNum="handleEditNum">
+    </TableIn>
   </Container>
 </template>
 
@@ -9,6 +12,11 @@ import vuex from '@/mixins/vuex.js'
 export default {
   mixins: [
     vuex
-  ]
+  ],
+  methods: {
+    handleEditNum (row) {
+      console.log(row)
+    }
+  }
 }
 </script>
