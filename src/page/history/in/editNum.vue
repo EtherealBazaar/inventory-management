@@ -9,9 +9,7 @@
       </el-button>
     </div>
     <p>你想要修改的记录是：</p>
-    <TableIn
-      :data="[history]">
-    </TableIn>
+    <TableIn :data="[history]"></TableIn>
     <p>新的数量是</p>
     <div>
       <el-input-number v-model="value"></el-input-number>
@@ -68,22 +66,35 @@ export default {
     },
     // 提交
     handleSubmit () {
-      // 更新存量
-      this.vuexProjectsUpdateNum({
-        id: this.history.project,
-        change: this.value - this.history.num
-      })
-      this.vuexProjectsLoad()
-      // 更新历史
-      this.vuexHistoryInUpdate({
-        id: this.history.id,
-        num: this.value
-      })
-      this.vuexHistoryInLoad()
-      // 结束
-      this.$message({
-        message: '保存成功',
-        type: 'success'
+      this.$confirm('此操作将会更新入库历史和物品列表数据', '确认操作?', {
+        confirmButtonText: '我知道 确定更新',
+        cancelButtonText: '点错了',
+        type: 'warning'
+      }).then(() => {
+        // 更新存量
+        this.vuexProjectsUpdateNum({
+          id: this.history.project,
+          change: this.value - this.history.num
+        })
+        this.vuexProjectsLoad()
+        // 更新历史
+        this.vuexHistoryInUpdate({
+          id: this.history.id,
+          num: this.value
+        })
+        this.vuexHistoryInLoad()
+        // 结束
+        this.$message({
+          message: '保存成功',
+          type: 'success'
+        })
+        // 返回
+        this.handleBack()
+      }).catch(() => {
+        this.$message({
+          type: 'info',
+          message: '已取消'
+        })
       })
     }
   }

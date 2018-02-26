@@ -9,7 +9,7 @@
     </el-table-column>
     <el-table-column label="数量" width="160">
       <template slot-scope="scope">
-        <el-button type="success" size="mini" @click="$emit('editNum', scope.row)">{{scope.row.num}}</el-button>
+        <el-button type="success" size="mini" @click="handleEditNum(scope.row)">{{scope.row.num}}</el-button>
       </template>
     </el-table-column>
     <el-table-column label="价格" width="60">
@@ -52,6 +52,16 @@ export default {
       type: Boolean,
       required: false,
       default: true
+    }
+  },
+  methods: {
+    handleEditNum (row) {
+      this.$router.push({
+        name: 'history-in-editNum',
+        params: {
+          id: row.id
+        }
+      })
     }
   }
 }
