@@ -14,8 +14,14 @@ export default {
     vuex
   ],
   methods: {
+    // 用户点击了编辑数量
     handleEditNum (row) {
-      console.log(row)
+      this.$router.push({
+        name: 'history-in-editNum',
+        params: {
+          id: row.id
+        }
+      })
     }
   }
 }
