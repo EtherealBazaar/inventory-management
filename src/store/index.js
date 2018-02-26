@@ -166,6 +166,15 @@ export default new Vuex.Store({
         })
         .write()
     },
+    // [历史 入库] 删
+    vuexHistoryInDelete (state, id) {
+      db
+        .get('vuexHistoryIn')
+        .remove({
+          id: id
+        })
+        .write()
+    },
     // [历史 入库] 改
     vuexHistoryInUpdate (state, item) {
       db
